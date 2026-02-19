@@ -78,7 +78,7 @@
         </main>
     </div>
 
-    <script src="{{ asset('js/invoices-create.js') }}"></script>
+    <script src="{{ asset('js/invoice-create.js') }}"></script>
 
 </body>
 </html>

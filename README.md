@@ -244,11 +244,6 @@ CSS/JS not loading Check asset paths or run `npm run dev`
 
 ---
 
----
-
-## 📜 License
-
-MIT License (or your preferred license)
 
 ---
 

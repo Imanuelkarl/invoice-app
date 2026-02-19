@@ -246,5 +246,5 @@ CSS/JS not loading Check asset paths or run `npm run dev`
 
 ## 👨‍💻 Author
 
-Built with Emmanuel Doze in Abuja, Nigeria\
+Built By Emmanuel Doze in Abuja, Nigeria\
 Last updated: February 2026

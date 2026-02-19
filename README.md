@@ -1,59 +1,258 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sales Invoice Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A simple yet complete CRUD web application built with **Laravel 12** for
+managing sales invoices.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ✨ Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Full **CRUD** operations for invoices\
+- Invoice listing with **pagination**\
+- Filter invoices by **date range** and **payment status**\
+- **File upload** support (PDF, JPG, JPEG, PNG)\
+- Clean, modern, responsive UI using **plain CSS + vanilla
+  JavaScript**\
+- Auto-submit filter when changing payment status\
+- Client-side form enhancements:
+    - File preview\
+    - Loading states\
+    - Basic validation\
+- Proper Laravel **resource routing & model binding**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🛠 Tech Stack
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- **Backend:** Laravel 12.x (PHP 8.1+)\
+- **Database:** MySQL / MariaDB\
+- **Frontend:** Blade templates + HTML + CSS + Vanilla JavaScript\
+- **Styling:** Custom CSS (No Tailwind / Bootstrap)\
+- **File Storage:** Laravel public disk\
+- **Asset Handling:** Vite (optional)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 📋 Requirements
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- PHP ≥ 8.1\
+- Composer\
+- MySQL or MariaDB\
+- Node.js & npm (optional -- for asset compilation)\
+- Git
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🚀 Installation
 
-## Contributing
+### 1️⃣ Clone the Repository
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+git clone https://github.com/Imanuelkarl/invoice-app.git
+cd invoice-app
+```
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 2️⃣ Install Dependencies
 
-## Security Vulnerabilities
+```bash
+composer install
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Optional (only if compiling assets):
 
-## License
+```bash
+npm install
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+### 3️⃣ Set Up Environment File
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` and configure your database:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=invoiceapp
+DB_USERNAME=<your-username>
+DB_PASSWORD=<your-password>
+```
+
+Generate application key:
+
+```bash
+php artisan key:generate
+```
+
+---
+
+### 4️⃣ Create Database & Run Migrations
+
+Create a database named:
+
+    invoiceapp
+
+Then run:
+
+```bash
+php artisan migrate
+```
+
+---
+
+### 5️⃣ Create Storage Symlink (Required for File Uploads)
+
+```bash
+php artisan storage:link
+```
+
+---
+
+### 6️⃣ (Optional) Compile Assets
+
+Development:
+
+```bash
+npm run dev
+```
+
+Production:
+
+```bash
+npm run build
+```
+
+---
+
+### 7️⃣ Start Development Server
+
+```bash
+php artisan serve
+```
+
+Open in browser:
+
+    http://127.0.0.1:8000/invoices
+
+---
+
+## 📂 Project Structure Highlights
+
+    app/
+    ├── Http/
+    │   └── Controllers/
+    │       └── InvoiceController.php
+    ├── Models/
+    │   └── Invoice.php
+
+    database/
+    ├── migrations/
+    │   └── *_create_invoices_table.php
+
+    public/
+    ├── css/
+    │   └── invoices.css
+    ├── js/
+    │   ├── invoices-create.js
+    │   └── invoices-edit.js
+
+    resources/
+    └── views/
+        └── invoices/
+            ├── index.blade.php
+            ├── create.blade.php
+            ├── edit.blade.php
+            └── show.blade.php
+
+    routes/
+    └── web.php
+
+---
+
+## 📌 Usage
+
+Action URL
+
+---
+
+List & Filter `/invoices`
+Create `/invoices/create`
+View `/invoices/{id}`
+Edit `/invoices/{id}/edit`
+Delete Via form on list or show page
+
+---
+
+## 🔎 Filter Behavior
+
+- Changing **Payment Status dropdown** → auto-filters (JavaScript)\
+- **Date range filter** → requires clicking "Filter" button
+
+---
+
+## 📎 File Uploads
+
+- Supported formats: `PDF`, `JPG`, `JPEG`, `PNG`\
+- Maximum size: **2MB** (configurable in validation rules)
+
+---
+
+## 🔐 Security Notes (Development)
+
+- Keep `APP_DEBUG=true` only in local/development\
+
+- In production:
+
+    ```env
+    APP_ENV=production
+    APP_DEBUG=false
+    ```
+
+- Never commit real `.env` credentials\
+
+- Add authentication (Laravel Breeze / Jetstream / Sanctum) for
+  production use
+
+---
+
+## 🧩 Troubleshooting
+
+---
+
+Issue Possible Fix
+
+---
+
+Page not found `php artisan route:clear`
+
+View not found Check path: `resources/views/invoices/...`
+
+File not showing after Run `php artisan storage:link`
+upload
+
+Database connection Verify `.env` credentials & ensure MySQL is
+error running
+
+CSS/JS not loading Check asset paths or run `npm run dev`
+
+---
+
+---
+
+## 📜 License
+
+MIT License (or your preferred license)
+
+---
+
+## 👨‍💻 Author
+
+Built with ❤️ in Abuja, Nigeria\
+Last updated: February 2026
